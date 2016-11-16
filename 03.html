@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script id="test" type="text/html">
+    <h1> <%=title %> </h1>
+    <% for(var i in content){ %>
+      <p>第<%=i%>段：<%=content[i]%></p>
+    <%}%>
+  </script>
+
+  <script>
+  var temp = '<h1>';
+  temp += title;
+  temp+ '</h1>';
+  for(var i in content) {
+    temp += '<p>' + content[i] + '</p>';
+  };
+  </script>
+</body>
+</html>

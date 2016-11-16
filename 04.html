@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script id="test" type="text/html">
+    <h1> <%=title %> </h1>
+    <h1> <%=title2 %> </h1>
+  </script>
+
+  <script>
+    var d = document.getElementById('test');
+    var t = d.innerHTML;
+    t = t.replace(/[\r\n]/g, '')
+
+    var o = t.split('%>');
+    // while(i--){
+    //   console.log(o[i].replace(/^\s*|\s*$/g,''))
+    // }
+    var tmp = '';
+    for(var i=0;i<o.length;i++){
+      var all = o[i].replace(/^\s*|\s*$/g,'').split('<%');;
+      var html = all[0].replace(/^\s*|\s*$/g,'');
+      var js = all[1]
+      tmp += html;
+      if(js) {
+        if(js[0] == '='){
+          tmp += '+' + js.replace('=','') + '+';
+        }else{
+
+        }
+      }
+
+    }
+    console.log(tmp)
+  </script>
+</body>
+</html>

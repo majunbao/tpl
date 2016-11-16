@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="02.js"></script>
+</head>
+
+<body>
+<!-- tppl 的模板 -->
+<script id="test" type="text/tmpl">
+<ul>
+    [: for (var val, i = 0, l = this.list.length; i < l; i ++) { :]
+        [: val = this.list[i]; :]
+        <li>用户: [=:val.user:]/ 网站：[=:val.site:]</li>
+    [: } :]
+</ul>
+</script>
+  <script>
+  var data = {
+    title: '标签',
+    list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+  };
+  var html = tppl(document.getElementById('test').innerHTML, data);
+  document.write(html)
+  </script>
+</body>
+
+</html>
